@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #f4f4f4;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .container {
+            margin-top: 70px;
+            padding: 20px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            object-fit: cover;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-info h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: gray;
+        }
+        .bio {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+            width: 80%;
+            font-size: 18px;
+        }
+        .works {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .work-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .work-item {
+            width: 80px;
+            height: 80px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <div class="navbar">
+        <a href="#profile">Profile</a>
+        <a href="#works">Works</a>
+    </div>
+
+    <div class="container">
+
+        <!-- قسم البروفايل -->
+        <h2 style="text-align: center;">Profile</h2>
+        <section id="profile" class="profile">
+            <img src="profile.jpeg" alt="Profile Photo">
+            <div class="profile-info">
+                <h3>Abdelrahman ashraf</h3>
+                <p>Flutter Developer</p>
+            </div>
+        </section>
+
+        <div class="bio">
+            <p>Hello, my name is <b>Ahmed Ali</b>.</p>
+        </div>
+
+        <!-- قسم الأعمال -->
+        <section id="works" class="works">
+            <h2>Works</h2>
+            <div class="work-gallery">
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+                <div class="work-item"></div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
