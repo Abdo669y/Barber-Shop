@@ -1,157 +1,72 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curly - تطبيق الحلاقة</title>
-  <style>
-    /* الأساسيات */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #E0F7FA; /* اللون السماوي الفاتح */
-      direction: rtl;
-    }
-    /* شريط التنقل */
-    .navbar {
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 10px 0;
-      text-align: center;
-      z-index: 100;
-    }
-    .navbar a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    /* الحاوية الرئيسية */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 70px;
-      padding: 20px;
-    }
-    /* قسم البروفايل */
-    #profile {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    #profile img.logo {
-      width: 120px;
-    }
-    #profile h1 {
-      font-size: 36px;
-      margin: 10px 0;
-      color: #0077cc;
-    }
-    /* قسم الأعمال */
-    #works {
-      margin-bottom: 40px;
-    }
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .slides {
-      display: flex;
-      width: 400%;
-      height: 100%;
-      transition: transform 1s ease;
-    }
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .description {
-      font-size: 18px;
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .download-btn {
-      display: block;
-      width: 200px;
-      margin: 0 auto;
-      padding: 15px;
-      background-color: #0077cc;
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 18px;
-    }
-    .note {
-      text-align: center;
-      font-size: 14px;
-      color: #333;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curly - تطبيق الحلاقة</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ADD8E6;
+            font-family: Arial, sans-serif;
+        }
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-container {
+            width: 200px;
+            height: 350px;
+            margin: auto;
+        }
+        .slider-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .install-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .slider-container {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- شريط التنقل -->
-  <nav class="navbar">
-    <a href="#profile">Profile</a>
-    <a href="#works">Works</a>
-  </nav>
-  
-  <div class="container">
-    <!-- قسم البروفايل -->
-    <section id="profile">
-      <img src="logo.png" alt="Curly Logo" class="logo">
-      <h1>Curly</h1>
-    </section>
-    
-    <!-- قسم الأعمال -->
-    <section id="works">
-      <div class="carousel" id="carousel">
-        <div class="slides" id="slides">
-          <img src="1.png" alt="صفحة 1">
-          <img src="2.png" alt="صفحة 2">
-          <img src="3.png" alt="صفحة 3">
-          <img src="4.png" alt="صفحة 4">
-        </div>
-      </div>
-      <div class="description">
-        <p>
-          تطبيق مثالي لتنظيم الحلاقة! يساعد الزبائن على حجز المواعيد بسهولة وتجنب الانتظار، مع إمكانية طلب حجز خاص للمناسبات مثل الزفاف. يدعم الحلاقين بتنظيم المواعيد وزيادة الدخل. احجز دورك في صالونك المفضل أو اطلب خدمة خاصة أينما كنت، بسرعة وسهولة. جربه الآن!
-        </p>
-      </div>
-      <a href="https://drive.google.com/uc?export=download&id=1hFX56VEvVdxfsI1Nx4Z9OtZRQIXdo_DL" class="download-btn" download>تثبيت الأن</a>
-      <div class="note">
-        <p>إن واجهتك مشكلة في هذه النقطة أو احتجت إلى ملف ".abb" الخاص بالتطبيق أخبرنى</p>
-      </div>
-    </section>
-  </div>
-  
-  <script>
-    // منطق الـ Carousel البسيط
-    let slideIndex = 0;
-    const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
-    
-    function showSlides() {
-      slideIndex++;
-      if (slideIndex >= totalSlides) {
-        slideIndex = 0;
-      }
-      slides.style.transform = 'translateX(' + (-slideIndex * 100) + '%)';
-    }
-    
-    setInterval(showSlides, 3000); // تغيير الصورة كل 3 ثواني
-  </script>
+    <div class="logo-container">
+        <img src="logo.png" alt="Curly Logo">
+    </div>
+    <div class="slider-container">
+        <img id="slider" src="1.png" alt="صورة التطبيق">
+    </div>
+    <a href="https://drive.google.com/uc?export=download&id=1hFX56VEvVdxfsI1Nx4Z9OtZRQIXdo_DL" class="install-button">تثبيت الآن</a>
+    <script>
+        const images = ["1.png", "2.png", "3.png", "4.png"];
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            document.getElementById("slider").src = images[index];
+        }, 2000);
+    </script>
 </body>
 </html>
