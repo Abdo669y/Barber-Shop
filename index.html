@@ -25,17 +25,16 @@
       box-sizing: border-box;
     }
 
-    /* الشريحة (slideshow) */
     .slideshow {
-      /* لتكون الصور مرنة العرض */
-      width: 100%;
-      max-width: 250px; /* أقصى عرض على الشاشات الكبيرة */
-      height: auto;     /* اجعل الارتفاع تلقائياً */
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      margin: 0 auto; /* لتوسيط العنصر */
-    }
+    width: 100%; /* عرض الصورة يتكيف مع الشاشة */
+    height: auto; /* ارتفاع الصورة يتكيف مع العرض */
+    max-width: 250px; /* أقصى عرض للصورة */
+    max-height: 450px; /* أقصى ارتفاع للصورة */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    margin: 0 auto; /* توسيط الصورة */
+}
     .slideshow img {
       width: 100%;
       height: auto;        /* لا تجبر الصورة على ارتفاع ثابت */
@@ -68,7 +67,7 @@
   <body>
     <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-10 py-3">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-4 py-3 sm:px-10">
           <div class="flex items-center gap-4 text-[#1C160C]">
             <div class="size-4">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +93,7 @@
             </button>
           </div>
         </header>
-        <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="px-4 sm:px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div class="@container">
               <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
@@ -119,7 +118,7 @@
                   <div class="flex-wrap gap-3 flex">
                     <button
                     onclick="downloadAPK()"  
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 sm:h-12 sm:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] sm:text-base"
                     >
                       <span class="truncate">apk تنزيل </span>
                     </button>
@@ -132,7 +131,7 @@
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-4">
               <div class="flex flex-col gap-3">
                 <div
                   class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
@@ -317,7 +316,7 @@
           
         </div>
         <div class="layout-content-container flex flex-col">
-          <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+          <footer class="flex flex-col gap-6 px-4 py-10 text-center sm:px-5">
             <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
               <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
               <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
