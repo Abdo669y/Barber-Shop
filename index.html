@@ -1,44 +1,70 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
-    />
+  <!-- إضافة وسم العرض لتفعيل التصميم المتجاوب -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Curly</title>
-    <style>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+  />
+
+  <title>Curly</title>
+
+  <style>
+    /* تنسيق عام للصفحة لجعلها تتجاوب مع مختلف الشاشات */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans', 'Plus Jakarta Sans', sans-serif;
+      /* يمكنك تعديل الحجم حسب رغبتك */
+      font-size: 16px;
+      /* لتناسب جميع الشاشات */
+      box-sizing: border-box;
+    }
+
+    /* الشريحة (slideshow) */
+    .slideshow {
+      /* لتكون الصور مرنة العرض */
+      width: 100%;
+      max-width: 250px; /* أقصى عرض على الشاشات الكبيرة */
+      height: auto;     /* اجعل الارتفاع تلقائياً */
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      margin: 0 auto; /* لتوسيط العنصر */
+    }
+    .slideshow img {
+      width: 100%;
+      height: auto;        /* لا تجبر الصورة على ارتفاع ثابت */
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* عرض الصورة الحالية */
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* مثال على ميديا كويري لضبط التخطيط على الشاشات الصغيرة */
+    @media (max-width: 600px) {
       .slideshow {
-          width: 250px; /* عرض الصورة */
-          height: 450px; /* ارتفاع الصورة */
-          position: relative;
-          overflow: hidden;
-          border: 1px solid #ccc; /* إطار حول الصور */
+        max-width: 100%;
+        /* في حال أردت جعل الصور أكبر على شاشات أصغر، يمكنك زيادة أو تقليل هذه القيم */
       }
-      .slideshow img {
-      
-          width: 100%;
-          height: 100%;
-          object-fit: cover; /* لجعل الصورة تظهر بشكل واضح */
-          position: absolute;
-          top: 0;
-          left: 0;
-          opacity: 0;
-          transition: opacity 1s ease-in-out; /* تأثير الانتقال */
-      }
-
-      /* عرض الصورة الحالية */
-      .slideshow img.active {
-          opacity: 1;
-      }
+    }
   </style>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  </head>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
   <body>
     <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
       <div class="layout-container flex h-full grow flex-col">
