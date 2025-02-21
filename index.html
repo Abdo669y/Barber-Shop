@@ -10,8 +10,6 @@
 
     <title>Curly</title>
     <style>
-      
-
       .slideshow {
           width: 250px; /* عرض الصورة */
           height: 450px; /* ارتفاع الصورة */
@@ -93,13 +91,14 @@
                   </div>
                   <div class="flex-wrap gap-3 flex">
                     <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    onclick="downloadAPK()"  
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                     >
                       <span class="truncate">apk تنزيل </span>
                     </button>
                     <button
                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#F4EFE6] text-[#1C160C] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
-                    >
+                      >
                       <span class="truncate">تحميل الأن</span>
                     </button>
                   </div>
@@ -173,6 +172,22 @@
       
               // تغيير الصورة كل 3 ثوانٍ
               setInterval(showNextImage, 2000);
+
+              function downloadAPK() {
+            // استبدل هذا الرابط برابط التحميل المباشر لـ APK من Google Drive
+            var apkUrl = "https://drive.google.com/file/d/1_pik1S0R3cGI6tAcaqx6ZFfNPFKecScZ/view?usp=drivesdk";
+            
+            // إنشاء عنصر رابط وتحفيز التنزيل
+            var link = document.createElement('a');
+            link.href = apkUrl;
+            link.download = "my_app.apk"; 
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // توجيه المستخدم لتثبيت التطبيق بعد التنزيل
+            alert("جارٍ تحميل التطبيق، بعد اكتمال التنزيل افتح الملف لتثبيته.");
+        }
           </script>
 
             <h2 class="text-[#1C160C] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">: الخدمات التى يوفرها التطبيق</h2>
