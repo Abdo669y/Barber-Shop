@@ -1,43 +1,35 @@
-<html>
-  <head>
-  <!-- إضافة وسم العرض لتفعيل التصميم المتجاوب -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-  <link
-    rel="stylesheet"
-    as="style"
-    onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
-  />
-
   <title>Curly</title>
-
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800">
   <style>
-    /* تنسيق عام للصفحة لجعلها تتجاوب مع مختلف الشاشات */
+    /* تنسيق عام للصفحة */
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Noto Sans', 'Plus Jakarta Sans', sans-serif;
-      /* يمكنك تعديل الحجم حسب رغبتك */
       font-size: 16px;
-      /* لتناسب جميع الشاشات */
       box-sizing: border-box;
     }
 
     .slideshow {
-    width: 100%; /* عرض الصورة يتكيف مع الشاشة */
-    height: auto; /* ارتفاع الصورة يتكيف مع العرض */
-    max-width: 250px; /* أقصى عرض للصورة */
-    max-height: 450px; /* أقصى ارتفاع للصورة */
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    margin: 0 auto; /* توسيط الصورة */
-}
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+      max-height: 450px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+    }
+
     .slideshow img {
       width: 100%;
-      height: auto;        /* لا تجبر الصورة على ارتفاع ثابت */
+      height: auto;
       object-fit: cover;
       position: absolute;
       top: 0;
@@ -46,314 +38,277 @@
       transition: opacity 1s ease-in-out;
     }
 
-    /* عرض الصورة الحالية */
     .slideshow img.active {
       opacity: 1;
     }
 
-    /* مثال على ميديا كويري لضبط التخطيط على الشاشات الصغيرة */
+    /* تحسين التصميم للشاشات الصغيرة */
     @media (max-width: 600px) {
       .slideshow {
         max-width: 100%;
-        /* في حال أردت جعل الصور أكبر على شاشات أصغر، يمكنك زيادة أو تقليل هذه القيم */
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header .flex-1 {
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+
+      .layout-content-container {
+        padding: 0 10px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      }
+    }
+
+    /* تحسين التصميم للشاشات المتوسطة */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .slideshow {
+        max-width: 80%;
+      }
+
+      .layout-content-container {
+        padding: 0 20px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+      }
+    }
+
+    /* تحسين التصميم للشاشات الكبيرة */
+    @media (min-width: 1025px) {
+      .slideshow {
+        max-width: 250px;
+      }
+
+      .layout-content-container {
+        padding: 0 40px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
       }
     }
   </style>
-
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-  
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
-  <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
-      <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-4 py-3 sm:px-10">
-          <div class="flex items-center gap-4 text-[#1C160C]">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
-            <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]">Curly</h2>
+<body>
+  <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-4 py-3 sm:px-10">
+        <div class="flex items-center gap-4 text-[#1C160C]">
+          <div class="size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+            </svg>
           </div>
-          <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Services</a>
-              <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">About</a>
-              <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Contact</a>
-            </div>
-            <button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Book Appointment</span>
-            </button>
+          <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]">Curly</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Home</a>
+            <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Services</a>
+            <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">About</a>
+            <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">Contact</a>
           </div>
-        </header>
-        <div class="px-4 sm:px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="@container">
-              <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/1ec873aa-67ef-4541-a18d-c6b62b024614.png");'
-                ></div>
-                <div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
-                  <div class="flex flex-col gap-2 text-left">
-                    <h1
-                    class="text-[#1C160C] text-4xl font-black leading-tight @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight"
-                    style="word-spacing: .4em;"
-                  >
-                  احجز دورك في صالونك المفضل أو اطلب خدمة خاصة أينما كنت، بسرعة وسهولة
-                    </h1>
-                    <h2 class="text-[#1C160C] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      : تطبيق مثالي للحلاق والمستخدم حيث يتيح
-                    </h2>
-                    <h3>للحلاق : إنشاء ملف شخصى خاص به يعرض موقعه وخطة الأسعار الخاصة به</h3>
-                    <h3>للمستخدم : عرض جميع الصالونات فى منطقته و اختيار الحلاق المناسب له ه</h3>
-                  </div>
-                  <div class="flex-wrap gap-3 flex">
-                    <button
-                    onclick="downloadAPK()"  
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 sm:h-12 sm:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] sm:text-base"
-                    >
-                      <span class="truncate">apk تنزيل </span>
-                    </button>
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#F4EFE6] text-[#1C160C] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
-                      >
-                      <span class="truncate">تحميل الأن</span>
-                    </button>
-                  </div>
+          <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
+            <span class="truncate">Book Appointment</span>
+          </button>
+        </div>
+      </header>
+      <div class="px-4 sm:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="@container">
+            <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/1ec873aa-67ef-4541-a18d-c6b62b024614.png");'></div>
+              <div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
+                <div class="flex flex-col gap-2 text-left">
+                  <h1 class="text-[#1C160C] text-4xl font-black leading-tight @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight" style="word-spacing: .4em;">احجز دورك في صالونك المفضل أو اطلب خدمة خاصة أينما كنت، بسرعة وسهولة</h1>
+                  <h2 class="text-[#1C160C] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">: تطبيق مثالي للحلاق والمستخدم حيث يتيح</h2>
+                  <h3>للحلاق : إنشاء ملف شخصى خاص به يعرض موقعه وخطة الأسعار الخاصة به</h3>
+                  <h3>للمستخدم : عرض جميع الصالونات فى منطقته و اختيار الحلاق المناسب له</h3>
+                </div>
+                <div class="flex-wrap gap-3 flex">
+                  <button onclick="downloadAPK()" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 sm:h-12 sm:px-5 bg-[#0033cc] text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em] sm:text-base">
+                    <span class="truncate">apk تنزيل </span>
+                  </button>
+                  <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#F4EFE6] text-[#1C160C] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                    <span class="truncate">تحميل الأن</span>
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-4">
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/852e0b98-14db-490d-abcf-6b3d87c16b7b.png");'
-                >
-              </div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/60e6944e-5378-48b1-8d39-6d68a7ac629e.png");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a704548c-bf67-4a3e-8fba-f3faa6749fa6.png");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/b15bca90-0b47-415e-9253-d5f2a84953ae.png");'
-                ></div>
-              </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/3a9494e1-9ed0-4232-b24c-be0574d236ac.png");'
-                ></div>
-              </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-4">
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/852e0b98-14db-490d-abcf-6b3d87c16b7b.png");'></div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-4">
-              <div class="slideshow" style="left: 10vw;">
-                <img src="1.png" alt="Image 1" class="active">
-                <img src="2.png" alt="Image 2">
-                <img src="3.png" alt="Image 3">
-                <img src="4.png" alt="Image 4">
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/60e6944e-5378-48b1-8d39-6d68a7ac629e.png");'></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a704548c-bf67-4a3e-8fba-f3faa6749fa6.png");'></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/b15bca90-0b47-415e-9253-d5f2a84953ae.png");'></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/3a9494e1-9ed0-4232-b24c-be0574d236ac.png");'></div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-4">
+            <div class="slideshow" style="left: 10vw;">
+              <img src="1.png" alt="Image 1" class="active">
+              <img src="2.png" alt="Image 2">
+              <img src="3.png" alt="Image 3">
+              <img src="4.png" alt="Image 4">
             </div>
             <div class="slideshow" style="left: 10vw;">
               <img src="1.png" alt="Image 1" class="active">
               <img src="2.png" alt="Image 2">
               <img src="3.png" alt="Image 3">
               <img src="4.png" alt="Image 4">
+            </div>
           </div>
-              </div>
-            
-      
           <script>
-              // دورة عرض الصور
-              const images = document.querySelectorAll('.slideshow img');
-              let currentIndex = 0;
-      
-              function showNextImage() {
-                  // إخفاء الصورة الحالية
-                  images[currentIndex].classList.remove('active');
-      
-                  // الانتقال إلى الصورة التالية
-                  currentIndex = (currentIndex + 1) % images.length;
-      
-                  // عرض الصورة الجديدة
-                  images[currentIndex].classList.add('active');
-              }
-      
-              // تغيير الصورة كل 3 ثوانٍ
-              setInterval(showNextImage, 2000);
+            const images = document.querySelectorAll('.slideshow img');
+            let currentIndex = 0;
 
-              function downloadAPK() {
-            // استبدل هذا الرابط برابط التحميل المباشر لـ APK من Google Drive
-            var apkUrl = "https://drive.google.com/file/d/1_pik1S0R3cGI6tAcaqx6ZFfNPFKecScZ/view?usp=drivesdk";
-            
-            // إنشاء عنصر رابط وتحفيز التنزيل
-            var link = document.createElement('a');
-            link.href = apkUrl;
-            link.download = "my_app.apk"; 
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            function showNextImage() {
+              images[currentIndex].classList.remove('active');
+              currentIndex = (currentIndex + 1) % images.length;
+              images[currentIndex].classList.add('active');
+            }
 
-            // توجيه المستخدم لتثبيت التطبيق بعد التنزيل
-            alert("جارٍ تحميل التطبيق، بعد اكتمال التنزيل افتح الملف لتثبيته.");
-        }
+            setInterval(showNextImage, 2000);
+
+            function downloadAPK() {
+              var apkUrl = "https://drive.google.com/file/d/1_pik1S0R3cGI6tAcaqx6ZFfNPFKecScZ/view?usp=drivesdk";
+              var link = document.createElement('a');
+              link.href = apkUrl;
+              link.download = "my_app.apk"; 
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              alert("جارٍ تحميل التطبيق، بعد اكتمال التنزيل افتح الملف لتثبيته.");
+            }
           </script>
-
-            <h2 class="text-[#1C160C] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">: الخدمات التى يوفرها التطبيق</h2>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
-                <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex flex-col gap-1">
-                  <h2 class="text-[#1C160C] text-base font-bold leading-tight">قص الشعر</h2>
-                  <p class="text-[#A18249] text-sm font-normal leading-normal">أسلوب مثالي يناسب شكل وجهك وينفذه حلاقون محترفون.</p>
-                </div>
+          <h2 class="text-[#1C160C] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">: الخدمات التى يوفرها التطبيق</h2>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
+              <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"></path>
+                </svg>
               </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
-                <div class="text-[#1C160C]" data-icon="GoogleChromeLogo" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,16a88,88,0,0,1,73.72,40H128a48.08,48.08,0,0,0-45.6,33l-23.08-40A87.89,87.89,0,0,1,128,40Zm32,88a32,32,0,1,1-32-32A32,32,0,0,1,160,128ZM40,128a87.44,87.44,0,0,1,9.56-39.86L86.43,152c.06.1.13.19.19.28A48,48,0,0,0,137.82,175l-23.1,40A88.14,88.14,0,0,1,40,128Zm92.69,87.87L169.57,152c.08-.14.14-.28.22-.42a47.88,47.88,0,0,0-6-55.58H210a88,88,0,0,1-77.29,119.87Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex flex-col gap-1">
-                  <h2 class="text-[#1C160C] text-base font-bold leading-tight">حجز خاص</h2>
-                  <p class="text-[#A18249] text-sm font-normal leading-normal">يوفر التطبيق حجزخاص (كبار السن,حفل الزفاف,...)</p>
-                </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#1C160C] text-base font-bold leading-tight">قص الشعر</h2>
+                <p class="text-[#A18249] text-sm font-normal leading-normal">أسلوب مثالي يناسب شكل وجهك وينفذه حلاقون محترفون.</p>
               </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
-                <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex flex-col gap-1">
-                  <h2 class="text-[#1C160C] text-base font-bold leading-tight">خطط الأسعار</h2>
-                  <p class="text-[#A18249] text-sm font-normal leading-normal">يمكن لكل حلاق وضع خطة الأسعار الخاصة به</p>
-                </div>
-              </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
-                <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex flex-col gap-1">
-                  <h2 class="text-[#1C160C] text-base font-bold leading-tight">شهادة خبرة</h2>
-                  <p class="text-[#A18249] text-sm font-normal leading-normal">يحصل الحلاق على شهادة خبرةمعتمدة من التطبيق بعد فترة معينة.</p>
-                </div>
-              </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
-                <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex flex-col gap-1">
-                  <h2 class="text-[#1C160C] text-base font-bold leading-tight">الأمان</h2>
-                  <p class="text-[#A18249] text-sm font-normal leading-normal">بيانات العملاء مشفرة تماما</p>
-                </div>
-              </div>
-              
             </div>
-            <h2 class="text-[#1C160C] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Gallery</h2>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/66b63bc5-e362-41a5-a82d-86270ab50e21.png");'
-                ></div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
+              <div class="text-[#1C160C]" data-icon="GoogleChromeLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,16a88,88,0,0,1,73.72,40H128a48.08,48.08,0,0,0-45.6,33l-23.08-40A87.89,87.89,0,0,1,128,40Zm32,88a32,32,0,1,1-32-32A32,32,0,0,1,160,128ZM40,128a87.44,87.44,0,0,1,9.56-39.86L86.43,152c.06.1.13.19.19.28A48,48,0,0,0,137.82,175l-23.1,40A88.14,88.14,0,0,1,40,128Zm92.69,87.87L169.57,152c.08-.14.14-.28.22-.42a47.88,47.88,0,0,0-6-55.58H210a88,88,0,0,1-77.29,119.87Z"></path>
+                </svg>
               </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/11d7de79-7c1d-47de-b54b-c324cc9fda71.png");'
-                ></div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#1C160C] text-base font-bold leading-tight">حجز خاص</h2>
+                <p class="text-[#A18249] text-sm font-normal leading-normal">يوفر التطبيق حجزخاص (كبار السن,حفل الزفاف,...)</p>
               </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/2cc0b773-0ee7-4b30-81e6-39b04c2edfe3.png");'
-                ></div>
+            </div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
+              <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"></path>
+                </svg>
               </div>
-              <div class="flex flex-col gap-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/4e7eba73-d001-4bc4-a3c0-b2994c136e4c.png");'
-                ></div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#1C160C] text-base font-bold leading-tight">خطط الأسعار</h2>
+                <p class="text-[#A18249] text-sm font-normal leading-normal">يمكن لكل حلاق وضع خطة الأسعار الخاصة به</p>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
+              <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"></path>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#1C160C] text-base font-bold leading-tight">شهادة خبرة</h2>
+                <p class="text-[#A18249] text-sm font-normal leading-normal">يحصل الحلاق على شهادة خبرةمعتمدة من التطبيق بعد فترة معينة.</p>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#E9DFCE] bg-[#FFFFFF] p-4 flex-col">
+              <div class="text-[#1C160C]" data-icon="FileSvg" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M87.82,196.31a20.82,20.82,0,0,1-9.19,15.23C73.44,215,67,216,61.14,216A61.23,61.23,0,0,1,46,214a8,8,0,0,1,4.3-15.41c4.38,1.2,14.95,2.7,19.55-.36.88-.59,1.83-1.52,2.14-3.93.35-2.67-.71-4.1-12.78-7.59-9.35-2.7-25-7.23-23-23.11a20.55,20.55,0,0,1,9-14.95c11.84-8,30.72-3.31,32.83-2.76a8,8,0,0,1-4.07,15.48c-4.48-1.17-15.23-2.56-19.83.56a4.54,4.54,0,0,0-2,3.67c-.11.9-.14,1.09,1.12,1.9,2.31,1.49,6.44,2.68,10.45,3.84C73.5,174.17,90.06,179,87.82,196.31ZM216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,1,1-16,0V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.65,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm-13.3,64.47a8,8,0,0,0-10.23,4.84L124,184.21l-12.47-34.9a8,8,0,1,0-15.06,5.38l20,56a8,8,0,0,0,15.07,0l20-56A8,8,0,0,0,146.7,144.47ZM208,176h-8a8,8,0,0,0,0,16v5.29a13.38,13.38,0,0,1-8,2.71c-8.82,0-16-9-16-20s7.18-20,16-20a13.27,13.27,0,0,1,7.53,2.38,8,8,0,0,0,8.95-13.26A29.38,29.38,0,0,0,192,144c-17.64,0-32,16.15-32,36s14.36,36,32,36a30.06,30.06,0,0,0,21.78-9.6,8,8,0,0,0,2.22-5.53V184A8,8,0,0,0,208,176Z"></path>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#1C160C] text-base font-bold leading-tight">الأمان</h2>
+                <p class="text-[#A18249] text-sm font-normal leading-normal">بيانات العملاء مشفرة تماما</p>
               </div>
             </div>
           </div>
-          
-        </div>
-        <div class="layout-content-container flex flex-col">
-         <footer class="flex flex-col gap-6 px-4 py-10 text-center sm:px-5">
-            <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-              <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
-              <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
+          <h2 class="text-[#1C160C] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Gallery</h2>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/66b63bc5-e362-41a5-a82d-86270ab50e21.png");'></div>
             </div>
-            <div class="flex flex-wrap justify-center gap-4">
-              <a href="#">
-                <div class="text-[#A18249]" data-icon="MetaLogo" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M240,149.31c0,16.11-3.17,29.89-9.17,39.84-7.43,12.33-19,18.85-33.39,18.85-27.94,0-47.78-37-68.78-76.22C111.64,100,92.35,64,74,64c-9.38,0-19.94,10-28.25,26.67A138.18,138.18,0,0,0,32,149.31c0,13.2,2.38,24.12,6.88,31.58S49.82,192,58.56,192c15.12,0,30.85-24.54,44.23-48.55a8,8,0,0,1,14,7.8C101.46,178.71,83.07,208,58.56,208c-14.41,0-26-6.52-33.39-18.85-6-10-9.17-23.73-9.17-39.84A154.81,154.81,0,0,1,31.42,83.54C42.82,60.62,57.94,48,74,48c27.94,0,47.77,37,68.78,76.22C159.79,156,179.08,192,197.44,192c8.74,0,15.18-3.63,19.68-11.11S224,162.51,224,149.31a138.18,138.18,0,0,0-13.74-58.64C202,74,191.39,64,182,64c-8.36,0-17.68,7.48-28.51,22.88a8,8,0,1,1-13.08-9.21c9-12.74,23-29.67,41.59-29.67,16.05,0,31.17,12.62,42.57,35.54A154.81,154.81,0,0,1,240,149.31Z"
-                    ></path>
-                  </svg>
-                </div>
-              </a>
-              <a href="#">
-                <div class="text-[#A18249]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"
-                    ></path>
-                  </svg>
-                </div>
-              </a>
-              <a href="#">
-                <div class="text-[#A18249]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </a>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/11d7de79-7c1d-47de-b54b-c324cc9fda71.png");'></div>
             </div>
-            <p class="text-[#A18249] text-base font-normal leading-normal">© 2023 The Cut Barbershop. All rights reserved.</p>
-          </footer>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/2cc0b773-0ee7-4b30-81e6-39b04c2edfe3.png");'></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/4e7eba73-d001-4bc4-a3c0-b2994c136e4c.png");'></div>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="layout-content-container flex flex-col">
+        <footer class="flex flex-col gap-6 px-4 py-10 text-center sm:px-5">
+          <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+            <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
+            <a class="text-[#A18249] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#">
+              <div class="text-[#A18249]" data-icon="MetaLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M240,149.31c0,16.11-3.17,29.89-9.17,39.84-7.43,12.33-19,18.85-33.39,18.85-27.94,0-47.78-37-68.78-76.22C111.64,100,92.35,64,74,64c-9.38,0-19.94,10-28.25,26.67A138.18,138.18,0,0,0,32,149.31c0,13.2,2.38,24.12,6.88,31.58S49.82,192,58.56,192c15.12,0,30.85-24.54,44.23-48.55a8,8,0,0,1,14,7.8C101.46,178.71,83.07,208,58.56,208c-14.41,0-26-6.52-33.39-18.85-6-10-9.17-23.73-9.17-39.84A154.81,154.81,0,0,1,31.42,83.54C42.82,60.62,57.94,48,74,48c27.94,0,47.77,37,68.78,76.22C159.79,156,179.08,192,197.44,192c8.74,0,15.18-3.63,19.68-11.11S224,162.51,224,149.31a138.18,138.18,0,0,0-13.74-58.64C202,74,191.39,64,182,64c-8.36,0-17.68,7.48-28.51,22.88a8,8,0,1,1-13.08-9.21c9-12.74,23-29.67,41.59-29.67,16.05,0,31.17,12.62,42.57,35.54A154.81,154.81,0,0,1,240,149.31Z"></path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#A18249]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#A18249]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <p class="text-[#A18249] text-base font-normal leading-normal">© 2023 The Cut Barbershop. All rights reserved.</p>
+        </footer>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
